@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.browser.customtabs.CustomTabsIntent;
 
 import com.classicspin.wg.manedger.PreferencesManagerImpl;
+import com.classicspin.wg.spin.SpinActivity;
+import com.classicspin.wg.spin.SpinSelectActivity;
 import com.facebook.applinks.AppLinkData;
 
 import java.io.BufferedReader;
@@ -125,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void showGame() {
-        Intent intent = new Intent(this, SpinActivity.class);
+        Intent intent = new Intent(this, SpinSelectActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
 

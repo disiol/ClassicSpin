@@ -3,25 +3,25 @@
     package="com.classicspin.wg">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".App"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".spin.SpinSelectActivity"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name=".SpinActivity">
-        </activity>
+        <activity android:name=".spin.SpinActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.VIEW" />
 
@@ -31,7 +31,6 @@
                 <data
                     android:host="run"
                     android:scheme="pls" />
-
             </intent-filter>
         </activity>
     </application>
