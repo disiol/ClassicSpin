@@ -17,7 +17,7 @@ import java.util.Random;
 public class SpinActivity extends AppCompatActivity {
 
     public static final Random sRandom = new Random();
-    private static final String SPIN = "spin";
+    public static final String SPIN = "spin";
     private ImageView spinImageView, imageView2;
     private int lastAngle = -1;
     private int spin;
@@ -38,11 +38,9 @@ public class SpinActivity extends AppCompatActivity {
 
         if(spin == 1){
             spinImageView.setImageDrawable(getResources().getDrawable(R.drawable.prizewheel));
-            imageView2.setImageDrawable(getResources().getDrawable(R.drawable.wheel_cursor));
 
         }else if (spin ==2){
             spinImageView.setImageDrawable(getResources().getDrawable(R.drawable.prizewheel2));
-            imageView2.setImageDrawable(getResources().getDrawable(R.drawable.wheel_cursor));
         }
 
         spinImageView.setOnClickListener(new View.OnClickListener() {

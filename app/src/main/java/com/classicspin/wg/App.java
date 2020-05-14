@@ -2,13 +2,21 @@ package com.classicspin.wg;
 
 import android.app.Application;
 
-import com.classicspin.wg.manedger.PreferencesManagerImpl;
+import com.classicspin.wg.di.component.DaggerApplicationComponent;
 import com.onesignal.OneSignal;
 
+import javax.inject.Inject;
 
-public class App extends Application {
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasAndroidInjector;
 
-    public static  final  String a = "https://";
+
+public class App extends Application  implements HasAndroidInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
+
 
     @Override
     public void onCreate() {
@@ -20,8 +28,16 @@ public class App extends Application {
                 .unsubscribeWhenNotificationsAreDisabled(true)
                 .init();
 
-         new PreferencesManagerImpl(this);
 
+        DaggerApplicationComponent.builder()
+                .context(this)
+                .build()
+                .inject(this);
 
+    }
+
+    @Override
+    public AndroidInjector<Object> androidInjector() {
+        return dispatchingAndroidInjector;
     }
 }
